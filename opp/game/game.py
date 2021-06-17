@@ -1,5 +1,7 @@
 from cards import Card
 import random
+
+
 #game grid
 class Game:
     def __init__(self):
@@ -51,6 +53,7 @@ class Game:
             get_row = self.create_row(row)
             print_row += " | ".join(get_row) + " |"
             print(print_row)
+
     def check_match(self, loc1, loc2):
         cards = []
         for card in self.cards:
@@ -63,7 +66,8 @@ class Game:
         else: 
             for card in cards:
                 print(f"{card.location}: {card}")
-            return False  
+            return False 
+
     def check_win(self):
         for card in self.cards:
             if not card.matched:
@@ -84,6 +88,7 @@ class Game:
             game.create_grid()
             guess1 = self.check_location("First")
             guess2 = self.check_location("Second")
+
             if self.check_match(guess1, guess2):
                 if self.check_win():
                     print("Congrats, You Won!!!!")
